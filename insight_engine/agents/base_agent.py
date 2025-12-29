@@ -5,7 +5,6 @@ Base agent implementation for the reasoning evaluator.
 from typing import Optional
 from abc import ABC, abstractmethod
 from langchain_openai import ChatOpenAI
-from langchain.prompts import ChatPromptTemplate
 from insight_engine.config import EvaluatorConfig
 
 
@@ -50,5 +49,5 @@ class BaseAgent(ABC):
         Returns:
             Formatted prompt
         """
-        prompt = ChatPromptTemplate.from_template(template)
-        return prompt.format(**kwargs)
+        # Simple string formatting - no need for ChatPromptTemplate
+        return template.format(**kwargs)
